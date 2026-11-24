@@ -33,10 +33,8 @@ El sitio estático no guarda envíos: los dos formularios (Cuéntanos tu
 caso, Revisión gratuita) abren WhatsApp con un mensaje prellenado con
 los datos escritos.
 
-⚠ **PENDIENTE — número de WhatsApp:** `app.js` usa el placeholder
-`527550000000` (755 000 0000, el de los ejemplos del documento de
-definición). Hay que reemplazar `WA_NUMBER` por el número real de
-NexIA antes de anunciarlo a clientes.
+**Número de WhatsApp:** `app.js` usa `525658141504` (56 5814 1504, número
+de NexIA, puesto el 2026-11-24).
 
 ## Archivos
 

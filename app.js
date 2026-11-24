@@ -2,12 +2,9 @@
    Idioma ES/EN + tema claro/oscuro. Formularios -> WhatsApp (el sitio
    estático no guarda envíos).
 
-   ⚠ NÚMERO DE WHATSAPP PENDIENTE: WA_NUMBER es un PLACEHOLDER
-   (755 000 0000, el de los ejemplos del documento de definición).
-   Hay que reemplazarlo por el número real de NexIA antes de publicar
-   el enlace a clientes. */
+   WhatsApp de NexIA: 56 5814 1504 (WA_NUMBER, código país 52). */
 
-var WA_NUMBER = "527550000000"; /* PLACEHOLDER: 755 000 0000 */
+var WA_NUMBER = "525658141504"; /* WhatsApp de NexIA: 56 5814 1504 */
 
 var STRINGS = {
   es: {

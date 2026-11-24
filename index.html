@@ -1,19 +1,294 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
-    <meta name="color-scheme" content="light dark" />
-    <!-- Empty inline icon: stops the browser fetching /favicon.ico, which
-         lives outside the space's routes and fails auth. -->
-    <link rel="icon" href="data:," />
-    <title>Página de NexIA</title>
-    
-  <link rel="stylesheet" crossorigin href="./assets/index-mjqbme6r.css"><script type="module" crossorigin src="./assets/index-m6gww6jc.js"></script></head>
-  <body>
-    <div
-      data-generated-space-root=""
-      data-generated-space-slug="pagina-de-nexia"
-    ></div>
-  </body>
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexIA — Clientes que llegan. Horas que regresan.</title>
+  <meta name="description" content="NexIA ayuda a negocios de Zihuatanejo, La Unión y Lázaro Cárdenas a conseguir más clientes y a recuperar las horas que se pierden en lo repetitivo.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="NexIA — inicio">
+      <img id="logoImg" src="logo/nexia-logo-horizontal-color.svg" alt="NexIA" height="40">
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#resultados" data-i18n="nav.results">Resultados</a>
+      <a href="#como" data-i18n="nav.how">Cómo funciona</a>
+      <a href="#para-quien" data-i18n="nav.who">Para quién es</a>
+      <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" id="themeBtn" class="theme-btn" aria-label="Cambiar tema">☀</button>
+      <a class="btn btn-primary btn-sm" href="#caso" data-i18n="nav.cta">Cuéntanos tu caso</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- 1. HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <h1 data-i18n="hero.title">Clientes que llegan. Horas que regresan.</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Tu negocio no necesita más publicaciones: necesita gente entrando por la puerta y menos horas perdidas en lo que se repite todos los días.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#caso" data-i18n="hero.cta">Cuéntanos tu caso</a>
+          <a class="hero-secondary" href="#como" data-i18n="hero.secondary">Ver cómo funciona</a>
+        </div>
+        <div class="hero-cards">
+          <article class="card">
+            <h2 data-i18n="hero.card1t">Más clientes entrando</h2>
+            <p data-i18n="hero.card1d">Que te vean, te encuentren y se detengan.</p>
+          </article>
+          <article class="card">
+            <h2 data-i18n="hero.card2t">Menos horas perdidas</h2>
+            <p data-i18n="hero.card2d">Lo repetitivo, atendido solo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ¿TE SUENA FAMILIAR? -->
+    <section id="problemas" class="section">
+      <div class="wrap">
+        <h2 class="section-title" data-i18n="pains.title">¿Te suena familiar?</h2>
+        <ul class="pain-list">
+          <li data-i18n="pains.p1">Publico en Facebook y casi nadie lo ve.</li>
+          <li data-i18n="pains.p2">Contesto los mismos mensajes todo el día.</li>
+          <li data-i18n="pains.p3">Apunto gastos y ventas en una libreta.</li>
+        </ul>
+        <p class="section-note" data-i18n="pains.note">Si alguna de estas te suena, no eres el único: es lo que escuchamos todos los días de negocios como el tuyo.</p>
+      </div>
+    </section>
+
+    <!-- 3. LO QUE CAMBIA -->
+    <section id="resultados" class="section section-sand">
+      <div class="wrap">
+        <h2 class="section-title" data-i18n="changes.title">Lo que cambia</h2>
+        <p class="section-intro" data-i18n="changes.intro">Dos resultados, no dos productos. El cómo va en letra chica, porque lo que compras es el resultado.</p>
+
+        <article class="track">
+          <div class="track-head">
+            <h3 data-i18n="changes.track1t">«Quiero más clientes»</h3>
+            <p class="how" data-i18n="changes.track1how">Cómo: campañas de marketing</p>
+          </div>
+          <dl class="pain-result">
+            <div>
+              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r1p">La gente pasa frente a mi negocio y no se detiene.</span></dt>
+              <dd data-i18n="changes.t1r1r">Que entren: convertir el paso de todos los días en visitas.</dd>
+            </div>
+            <div>
+              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r2p">Publico en Facebook y casi nadie lo ve.</span></dt>
+              <dd data-i18n="changes.t1r2r">Que cada publicación trabaje para traer gente, no solo para “estar presente”.</dd>
+            </div>
+            <div>
+              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r3p">Mi competencia sí aparece en redes; yo no existo.</span></dt>
+              <dd data-i18n="changes.t1r3r">Existir donde el cliente busca: en redes y en Google.</dd>
+            </div>
+            <div>
+              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r4p">Dependo de las recomendaciones y de la temporada.</span></dt>
+              <dd data-i18n="changes.t1r4r">Demanda más constante, también fuera de temporada.</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="track">
+          <div class="track-head">
+            <h3 data-i18n="changes.track2t">«Quiero dejar de perder el tiempo»</h3>
+            <p class="how" data-i18n="changes.track2how">Cómo: automatizaciones con IA</p>
+          </div>
+          <dl class="pain-result">
+            <div>
+              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r1p">Contesto los mismos mensajes todo el día, hasta en domingo.</span></dt>
+              <dd data-i18n="changes.t2r1r">Respuestas que atienden al cliente mientras tú no estás.</dd>
+            </div>
+            <div>
+              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r2p">Apunto gastos y ventas en libretas, o de memoria.</span></dt>
+              <dd data-i18n="changes.t2r2r">Registro automático: sabes qué entra y qué sale sin capturar nada a mano.</dd>
+            </div>
+            <div>
+              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r3p">Se me van clientes porque contesto tarde.</span></dt>
+              <dd data-i18n="changes.t2r3r">Nadie se queda esperando: el seguimiento ya no se olvida.</dd>
+            </div>
+            <div>
+              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r4p">Pierdo horas en tareas que se repiten igual cada semana.</span></dt>
+              <dd data-i18n="changes.t2r4r">Horas que regresan para atender el negocio, no el papeleo.</dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. ASÍ TRABAJAMOS -->
+    <section id="como" class="section">
+      <div class="wrap">
+        <h2 class="section-title" data-i18n="process.title">Así trabajamos</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <h3 data-i18n="process.s1t">Escuchamos tu caso</h3>
+            <p data-i18n="process.s1d">Nos cuentas tu problema en tus palabras, sin tecnicismos.</p>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <h3 data-i18n="process.s2t">Diseñamos a tu medida</h3>
+            <p data-i18n="process.s2d">La campaña o el sistema, hechos para tu negocio.</p>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <h3 data-i18n="process.s3t">Medimos y ajustamos</h3>
+            <p data-i18n="process.s3d">Revisamos qué funciona y lo afinamos contigo.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. ¿PARA QUIÉN ES? -->
+    <section id="para-quien" class="section section-sand">
+      <div class="wrap">
+        <h2 class="section-title" data-i18n="who.title">¿Para quién es?</h2>
+        <div class="who-grid">
+          <article class="card">
+            <h3 data-i18n="who.c1t">Negocios locales</h3>
+            <p data-i18n="who.c1d">Negocios de Zihuatanejo, La Unión y Lázaro Cárdenas que quieren clientes.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="who.c2t">Dueños a distancia</h3>
+            <p data-i18n="who.c2d">Dueños de propiedades en Troncones, Majahua y Saladita que rentan a distancia.</p>
+          </article>
+        </div>
+        <p class="section-note" data-i18n="who.not">Con respeto: no es para quien solo quiere más publicaciones sin medir si traen clientes.</p>
+      </div>
+    </section>
+
+    <!-- 6. RESULTADOS REALES -->
+    <section id="resultados-reales" class="section">
+      <div class="wrap">
+        <h2 class="section-title" data-i18n="proof.title">Resultados reales</h2>
+        <div class="reserved">
+          <p data-i18n="proof.body">Este espacio se llenará con casos y testimonios reales cuando existan. Nada de cifras de relleno ni testimonios inventados: lo que veas aquí será de clientes de verdad.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PREGUNTAS DE SIEMPRE -->
+    <section id="faq" class="section section-sand">
+      <div class="wrap">
+        <h2 class="section-title" data-i18n="faq.title">Preguntas de siempre</h2>
+        <div class="faq-list">
+          <details>
+            <summary data-i18n="faq.q1">¿Y eso cuánto cuesta?</summary>
+            <p data-i18n="faq.a1">Proyectos con precio cerrado, sin mensualidad obligatoria.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q2">¿Necesito saber de tecnología?</summary>
+            <p data-i18n="faq.a2">No: lo operamos nosotros.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FORMULARIOS -->
+    <section id="formularios" class="section">
+      <div class="wrap">
+        <h2 class="section-title" data-i18n="forms.title">Empecemos por tu caso</h2>
+        <p class="section-intro" data-i18n="forms.intro">Dos formas de empezar, las dos cortas a propósito. Al enviar, se abrirá WhatsApp con tu mensaje ya listo.</p>
+        <div class="forms-grid">
+
+          <form id="caso" class="form-card" novalidate>
+            <h3 data-i18n="forms.caseTitle">Cuéntanos tu caso</h3>
+            <p class="form-purpose" data-i18n="forms.casePurpose">El formulario principal: recoge lo mínimo para poder responderte con una propuesta, no con preguntas.</p>
+            <label>
+              <span data-i18n="forms.fName">Tu nombre</span>
+              <input type="text" name="nombre" required data-i18n-ph="forms.phName" placeholder="María Fernanda">
+            </label>
+            <label>
+              <span data-i18n="forms.fBiz">Tu negocio</span>
+              <input type="text" name="negocio" required data-i18n-ph="forms.phBiz" placeholder="Restaurante La Brisa">
+            </label>
+            <label>
+              <span data-i18n="forms.fContact">WhatsApp o correo</span>
+              <input type="text" name="contacto" required data-i18n-ph="forms.phContact" placeholder="755 000 0000">
+            </label>
+            <label>
+              <span data-i18n="forms.fPain">¿Cuál es tu mayor problema?</span>
+              <select name="problema" required>
+                <option value="No me llegan clientes" data-i18n="forms.painOpt1">No me llegan clientes</option>
+                <option value="Pierdo horas en lo repetitivo" data-i18n="forms.painOpt2">Pierdo horas en lo repetitivo</option>
+                <option value="Los dos" data-i18n="forms.painOpt3">Los dos</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="forms.fMore">Cuéntanos más (opcional)</span>
+              <textarea name="mas" rows="3" data-i18n-ph="forms.phMore" placeholder="…"></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="forms.caseBtn">Enviar mi caso</button>
+          </form>
+
+          <form id="revision" class="form-card" novalidate>
+            <h3 data-i18n="forms.revTitle">Revisión gratuita de tu presencia</h3>
+            <p class="form-purpose" data-i18n="forms.revPurpose">El formulario corto para el primer contacto: pide poco porque todavía no hay confianza. Sin compromiso y sin precio escondido.</p>
+            <label>
+              <span data-i18n="forms.fBizName">Nombre del negocio</span>
+              <input type="text" name="negocio" required data-i18n-ph="forms.phBizName" placeholder="Hotel Casa del Mar">
+            </label>
+            <label>
+              <span data-i18n="forms.fCity">Ciudad</span>
+              <select name="ciudad" required>
+                <option value="Zihuatanejo">Zihuatanejo</option>
+                <option value="La Unión">La Unión</option>
+                <option value="Lázaro Cárdenas">Lázaro Cárdenas</option>
+                <option value="Otra" data-i18n="forms.cityOther">Otra</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="forms.fPage">Tu página de Facebook o Instagram</span>
+              <input type="text" name="pagina" data-i18n-ph="forms.phPage" placeholder="facebook.com/…">
+            </label>
+            <label>
+              <span data-i18n="forms.fWa">WhatsApp</span>
+              <input type="text" name="whatsapp" required data-i18n-ph="forms.phWa" placeholder="755 000 0000">
+            </label>
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="forms.revBtn">Quiero mi revisión</button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CIERRE -->
+    <section id="contacto" class="closing">
+      <div class="wrap">
+        <h2 data-i18n="close.title">Cuéntanos tu caso</h2>
+        <p data-i18n="close.sub">Cuéntanos tu problema en un mensaje y te respondemos con una propuesta.</p>
+        <a class="btn btn-primary btn-lg" id="waClose" href="https://wa.me/527550000000?text=Hola%20NexIA%2C%20quiero%20contarles%20mi%20caso." target="_blank" rel="noopener" data-i18n="close.btn">Hablar por WhatsApp</a>
+        <p class="close-area">NexIA · <span data-i18n="close.area">Zihuatanejo · La Unión · Lázaro Cárdenas</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <img id="footerLogo" class="footer-logo" src="logo/nexia-isotipo-color.svg" alt="NexIA" width="36" height="36">
+      <div>
+        <p><strong>NexIA</strong> · <span data-i18n="footer.area">Zihuatanejo · La Unión · Lázaro Cárdenas</span></p>
+        <p class="footer-how" data-i18n="footer.how">Campañas de marketing · Automatizaciones con IA</p>
+        <p class="footer-site">www.nexia.ing</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-bar">
+    <a class="btn btn-primary btn-block" href="#caso" data-i18n="sticky.cta">Cuéntanos tu caso</a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>

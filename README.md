@@ -1,32 +1,47 @@
-# NexIA — Sitio web (nexia.ing)
+# NexIA — sitio web para clientes
 
-Sitio estático de NexIA Digital: página informativa, mobile-first, en español e
-inglés, con tema claro y oscuro. Se publica con GitHub Pages y el dominio
-`nexia.ing` apunta a este repositorio.
+Sitio real de NexIA Digital para sus clientes (no el documento de
+definición del proyecto, que vive en el Space `pagina-de-nexia`).
 
-## Origen
+- **En vivo:** https://jjmbrooks.github.io/NexIA-website/
+- **Dominio final (pendiente):** www.nexia.ing
 
-Compilación estática (v3) del Space `pagina-de-nexia`: `index.html` +
-`assets/` es el sitio tal como se sirve. No se edita a mano: los cambios se
-hacen en el Space y se vuelve a copiar la salida compilada (`.space-build/`)
-a la raíz de este repo.
+## Qué es
 
-## Estructura
+Página estática (HTML + CSS + JS, sin build): vende problemas y
+resultados, no productos. Las dos servicios — campañas de marketing y
+automatizaciones con IA — aparecen solo en letra chica, como el «cómo».
+Wording: «problema» / «dificultad», nunca «dolor». Sin cifras ni
+testimonios inventados: la sección de resultados es un espacio reservado
+para casos reales.
 
-- `index.html` — punto de entrada del sitio.
-- `assets/` — JavaScript y CSS compilados del sitio.
-- `manifest.json` — manifiesto de la compilación (fecha y hash del contenido).
-- `logo/` — sistema de logo terminado de NexIA (SVG a color: horizontal e
-  isotipo). El resto del sistema (vertical, negativo, una tinta, PNG) vive en
-  Dropbox `/SMM/NexIA/Logo definitivo/`.
+## Estructura (9 secciones)
 
-## Publicación (GitHub Pages)
+Hero · ¿Te suena familiar? · Lo que cambia (problemas → resultados) ·
+Así trabajamos · ¿Para quién es? · Resultados reales (reservado) ·
+Preguntas de siempre · Formularios · Cierre por WhatsApp.
 
-Repo → Settings → Pages → Build and deployment → Deploy from a branch →
-rama `main`, carpeta `/ (root)`. El sitio queda en
-`https://jjmbrooks.github.io/NexIA-website/` hasta que el dominio `nexia.ing`
-apunte aquí (paso de DNS, fuera de este repo).
+Mobile first, ES/EN con un clic, claro/oscuro con un clic (claro por
+defecto). Identidad JJMBrooks minimalista editorial: terracota #C9785B,
+arena #E9DCC5, azul claro #AECEDB, carbón #3A3D40, blanco #FFFFFF;
+Playfair Display en titulares, Inter en cuerpo. Logo definitivo de
+NexIA en `logo/` (color y negativo para tema oscuro).
 
-## Regla de redacción
+## Formularios
 
-En el sitio se habla de `problema` / `dificultad`, nunca de `dolor`.
+El sitio estático no guarda envíos: los dos formularios (Cuéntanos tu
+caso, Revisión gratuita) abren WhatsApp con un mensaje prellenado con
+los datos escritos.
+
+⚠ **PENDIENTE — número de WhatsApp:** `app.js` usa el placeholder
+`527550000000` (755 000 0000, el de los ejemplos del documento de
+definición). Hay que reemplazar `WA_NUMBER` por el número real de
+NexIA antes de anunciarlo a clientes.
+
+## Archivos
+
+- `index.html` — contenido y estructura
+- `styles.css` — estilos, temas claro/oscuro
+- `app.js` — diccionario ES/EN, toggles, formularios → WhatsApp
+- `logo/` — logo horizontal e isotipo (color y negativo)
+- `favicon.svg` — isotipo

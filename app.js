@@ -9,11 +9,15 @@ var WA_NUMBER = "525658141504"; /* WhatsApp de NexIA: 56 5814 1504 */
 var STRINGS = {
   es: {
     "meta.title": "NexIA — Clientes que llegan. Horas que regresan.",
-    "nav.results": "Resultados",
+    "meta.description": "NexIA ayuda a negocios de Zihuatanejo, La Unión y Lázaro Cárdenas a conseguir más clientes y a recuperar las horas que se pierden en lo repetitivo.",
+    "nav.changes": "Lo que cambia",
+    "nav.realResults": "Resultados reales",
     "nav.how": "Cómo funciona",
     "nav.who": "Para quién es",
     "nav.faq": "Preguntas",
     "nav.cta": "Cuéntanos tu caso",
+    "theme.ariaLight": "Cambiar a tema claro",
+    "theme.ariaDark": "Cambiar a tema oscuro",
     "hero.title": "Clientes que llegan. Horas que regresan.",
     "hero.sub": "Tu negocio no necesita más publicaciones: necesita gente entrando por la puerta y menos horas perdidas en lo que se repite todos los días.",
     "hero.cta": "Cuéntanos tu caso",
@@ -22,6 +26,8 @@ var STRINGS = {
     "hero.card1d": "Que te vean, te encuentren y se detengan.",
     "hero.card2t": "Menos horas perdidas",
     "hero.card2d": "Lo repetitivo, atendido solo.",
+    "media.trackCaption": "La calle de La Unión durante el desfile del 20 de noviembre de 2026.",
+    "media.whoCaption": "La Unión desde el aire: el territorio donde trabajan nuestros clientes.",
     "pains.title": "¿Te suena familiar?",
     "pains.p1": "Publico en Facebook y casi nadie lo ve.",
     "pains.p2": "Contesto los mismos mensajes todo el día.",
@@ -78,6 +84,8 @@ var STRINGS = {
     "forms.fBiz": "Tu negocio",
     "forms.fContact": "WhatsApp o correo",
     "forms.fPain": "¿Cuál es tu mayor problema?",
+    "forms.pickPain": "Elige una opción",
+    "forms.pickCity": "Elige tu ciudad",
     "forms.painOpt1": "No me llegan clientes",
     "forms.painOpt2": "Pierdo horas en lo repetitivo",
     "forms.painOpt3": "Los dos",
@@ -94,7 +102,9 @@ var STRINGS = {
     "forms.phName": "María Fernanda",
     "forms.phBiz": "Restaurante La Brisa",
     "forms.phContact": "755 000 0000",
-    "forms.phMore": "…",
+    "forms.phMore": "Ej.: contesto los mismos mensajes hasta en domingo…",
+    "forms.confirmText": "Se abrió WhatsApp con tu mensaje ya listo. Si no se abrió, ",
+    "forms.confirmLink": "toca aquí para intentarlo de nuevo",
     "forms.phBizName": "Hotel Casa del Mar",
     "forms.phPage": "facebook.com/…",
     "forms.phWa": "755 000 0000",
@@ -113,11 +123,15 @@ var STRINGS = {
   },
   en: {
     "meta.title": "NexIA — Clients walking in. Hours coming back.",
-    "nav.results": "Results",
+    "meta.description": "NexIA helps businesses in Zihuatanejo, La Unión and Lázaro Cárdenas get more clients and win back the hours lost on repetitive work.",
+    "nav.changes": "What changes",
+    "nav.realResults": "Real results",
     "nav.how": "How it works",
     "nav.who": "Who it's for",
     "nav.faq": "Questions",
     "nav.cta": "Tell us your case",
+    "theme.ariaLight": "Switch to light theme",
+    "theme.ariaDark": "Switch to dark theme",
     "hero.title": "Clients walking in. Hours coming back.",
     "hero.sub": "Your business doesn't need more posts — it needs people walking through the door and fewer hours lost on what repeats every day.",
     "hero.cta": "Tell us your case",
@@ -126,6 +140,8 @@ var STRINGS = {
     "hero.card1d": "Get seen, get found, get them to stop.",
     "hero.card2t": "Fewer hours wasted",
     "hero.card2d": "The repetitive stuff, handled on its own.",
+    "media.trackCaption": "La Unión's main street during the 20 November 2026 parade.",
+    "media.whoCaption": "La Unión from above: the territory where our clients work.",
     "pains.title": "Sound familiar?",
     "pains.p1": "I post on Facebook and almost nobody sees it.",
     "pains.p2": "I answer the same messages all day long.",
@@ -182,6 +198,8 @@ var STRINGS = {
     "forms.fBiz": "Your business",
     "forms.fContact": "WhatsApp or email",
     "forms.fPain": "What's your biggest problem?",
+    "forms.pickPain": "Choose an option",
+    "forms.pickCity": "Choose your city",
     "forms.painOpt1": "I'm not getting clients",
     "forms.painOpt2": "I lose hours on repetitive work",
     "forms.painOpt3": "Both",
@@ -198,7 +216,9 @@ var STRINGS = {
     "forms.phName": "María Fernanda",
     "forms.phBiz": "Restaurante La Brisa",
     "forms.phContact": "755 000 0000",
-    "forms.phMore": "…",
+    "forms.phMore": "E.g.: I answer the same messages even on Sundays…",
+    "forms.confirmText": "WhatsApp opened with your message ready. If it didn't open, ",
+    "forms.confirmLink": "tap here to try again",
     "forms.phBizName": "Hotel Casa del Mar",
     "forms.phPage": "facebook.com/…",
     "forms.phWa": "755 000 0000",
@@ -246,6 +266,8 @@ function t(key) {
 function applyLang() {
   document.documentElement.lang = lang;
   document.title = t("meta.title");
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute("content", t("meta.description"));
   var els = document.querySelectorAll("[data-i18n]");
   for (var i = 0; i < els.length; i++) {
     els[i].textContent = t(els[i].getAttribute("data-i18n"));
@@ -277,8 +299,7 @@ function applyTheme() {
   }
   var btn = document.getElementById("themeBtn");
   if (btn) {
-    btn.textContent = theme === "dark" ? "☾" : "☀";
-    btn.setAttribute("aria-label", theme === "dark" ? "Cambiar a tema claro" : "Cambiar a tema oscuro");
+    btn.setAttribute("aria-label", theme === "dark" ? t("theme.ariaLight") : t("theme.ariaDark"));
   }
 }
 
@@ -309,6 +330,14 @@ function fill(template, vars) {
 function updateWaClose() {
   var a = document.getElementById("waClose");
   if (a) a.href = waLink(t("wa.closeMsg"));
+}
+
+function showConfirm(form, url) {
+  var note = form.querySelector(".form-confirm");
+  if (!note) return;
+  var link = note.querySelector(".confirm-link");
+  if (link) link.href = url;
+  note.hidden = false;
 }
 
 function init() {
@@ -352,7 +381,9 @@ function init() {
         mas: mas ? t("wa.morePrefix") + mas : "",
         contacto: f.contacto.value.trim()
       });
-      window.open(waLink(msg), "_blank");
+      var url = waLink(msg);
+      window.open(url, "_blank");
+      showConfirm(caso, url);
     });
   }
 
@@ -369,8 +400,25 @@ function init() {
         pagina: pagina || t("wa.noPage"),
         whatsapp: f.whatsapp.value.trim()
       });
-      window.open(waLink(msg), "_blank");
+      var url = waLink(msg);
+      window.open(url, "_blank");
+      showConfirm(rev, url);
     });
+  }
+
+  /* La barra fija duplica la acción cuando ya estás en los formularios
+     o en el cierre: se esconde mientras esas secciones están en pantalla. */
+  var stickyBar = document.querySelector(".sticky-bar");
+  if (stickyBar && "IntersectionObserver" in window) {
+    var hideSticky = function (entries) {
+      var inForms = entries.some(function (en) { return en.isIntersecting; });
+      document.body.classList.toggle("hide-sticky", inForms);
+    };
+    var obs = new IntersectionObserver(hideSticky, { threshold: 0.05 });
+    var formsSection = document.getElementById("formularios");
+    var closing = document.querySelector(".closing");
+    if (formsSection) obs.observe(formsSection);
+    if (closing) obs.observe(closing);
   }
 }
 

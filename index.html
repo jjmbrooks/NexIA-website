@@ -17,7 +17,8 @@
       <img id="logoImg" src="logo/nexia-logo-horizontal-color.svg" alt="NexIA" height="40">
     </a>
     <nav class="main-nav" aria-label="Navegación principal">
-      <a href="#resultados" data-i18n="nav.results">Resultados</a>
+      <a href="#resultados" data-i18n="nav.changes">Lo que cambia</a>
+      <a href="#resultados-reales" data-i18n="nav.realResults">Resultados reales</a>
       <a href="#como" data-i18n="nav.how">Cómo funciona</a>
       <a href="#para-quien" data-i18n="nav.who">Para quién es</a>
       <a href="#faq" data-i18n="nav.faq">Preguntas</a>
@@ -27,7 +28,10 @@
         <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
         <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
       </div>
-      <button type="button" id="themeBtn" class="theme-btn" aria-label="Cambiar tema">☀</button>
+      <button type="button" id="themeBtn" class="theme-btn" aria-label="Cambiar tema">
+        <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
+        <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.2A8.5 8.5 0 0 1 9.8 3.6a8.5 8.5 0 1 0 10.6 10.6z"/></svg>
+      </button>
       <a class="btn btn-primary btn-sm" href="#caso" data-i18n="nav.cta">Cuéntanos tu caso</a>
     </div>
   </header>
@@ -35,20 +39,25 @@
   <main id="inicio">
     <!-- 1. HERO -->
     <section class="hero">
-      <div class="wrap">
-        <h1 data-i18n="hero.title">Clientes que llegan. Horas que regresan.</h1>
-        <p class="hero-sub" data-i18n="hero.sub">Tu negocio no necesita más publicaciones: necesita gente entrando por la puerta y menos horas perdidas en lo que se repite todos los días.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#caso" data-i18n="hero.cta">Cuéntanos tu caso</a>
-          <a class="hero-secondary" href="#como" data-i18n="hero.secondary">Ver cómo funciona</a>
+      <div class="wrap hero-grid">
+        <figure class="hero-media">
+          <img src="assets/img/hero-la-union-panorama.jpg" srcset="assets/img/hero-la-union-panorama-800.jpg 800w, assets/img/hero-la-union-panorama.jpg 1600w" sizes="(max-width: 719px) 100vw, 620px" alt="La Unión, Guerrero, desde el aire: el pueblo, el río y el entronque" width="1600" height="1000" fetchpriority="high">
+        </figure>
+        <div class="hero-copy">
+          <h1 data-i18n="hero.title">Clientes que llegan. Horas que regresan.</h1>
+          <p class="hero-sub" data-i18n="hero.sub">Tu negocio no necesita más publicaciones: necesita gente entrando por la puerta y menos horas perdidas en lo que se repite todos los días.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#caso" data-i18n="hero.cta">Cuéntanos tu caso</a>
+            <a class="hero-secondary" href="#como" data-i18n="hero.secondary">Ver cómo funciona</a>
+          </div>
         </div>
-        <div class="hero-cards">
-          <article class="card">
-            <h2 data-i18n="hero.card1t">Más clientes entrando</h2>
+        <div class="hero-results">
+          <article>
+            <p class="hero-card-title" data-i18n="hero.card1t">Más clientes entrando</p>
             <p data-i18n="hero.card1d">Que te vean, te encuentren y se detengan.</p>
           </article>
-          <article class="card">
-            <h2 data-i18n="hero.card2t">Menos horas perdidas</h2>
+          <article>
+            <p class="hero-card-title" data-i18n="hero.card2t">Menos horas perdidas</p>
             <p data-i18n="hero.card2d">Lo repetitivo, atendido solo.</p>
           </article>
         </div>
@@ -79,6 +88,10 @@
             <h3 data-i18n="changes.track1t">«Quiero más clientes»</h3>
             <p class="how" data-i18n="changes.track1how">Cómo: campañas de marketing</p>
           </div>
+          <figure class="track-media">
+            <img src="assets/img/calle-desfile.jpg" srcset="assets/img/calle-desfile-800.jpg 800w, assets/img/calle-desfile.jpg 1200w" sizes="(max-width: 719px) 100vw, 1040px" alt="La calle de La Unión llena de gente durante el desfile" loading="lazy">
+            <figcaption data-i18n="media.trackCaption">La calle de La Unión durante el desfile del 20 de noviembre de 2026.</figcaption>
+          </figure>
           <dl class="pain-result">
             <div>
               <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r1p">La gente pasa frente a mi negocio y no se detiene.</span></dt>
@@ -151,9 +164,13 @@
     </section>
 
     <!-- 5. ¿PARA QUIÉN ES? -->
-    <section id="para-quien" class="section section-sand">
+    <section id="para-quien" class="section section-water">
       <div class="wrap">
         <h2 class="section-title" data-i18n="who.title">¿Para quién es?</h2>
+        <figure class="who-media">
+          <img src="assets/img/la-union-aerea.jpg" srcset="assets/img/la-union-aerea-800.jpg 800w, assets/img/la-union-aerea.jpg 1600w" sizes="(max-width: 719px) 100vw, 1040px" alt="La Unión, Guerrero, desde el aire" loading="lazy">
+          <figcaption data-i18n="media.whoCaption">La Unión desde el aire: el territorio donde trabajan nuestros clientes.</figcaption>
+        </figure>
         <div class="who-grid">
           <article class="card">
             <h3 data-i18n="who.c1t">Negocios locales</h3>
@@ -202,24 +219,26 @@
         <p class="section-intro" data-i18n="forms.intro">Dos formas de empezar, las dos cortas a propósito. Al enviar, se abrirá WhatsApp con tu mensaje ya listo.</p>
         <div class="forms-grid">
 
-          <form id="caso" class="form-card" novalidate>
+          <form id="caso" class="form-card" novalidate action="https://wa.me/525658141504" method="get">
+            <input type="hidden" name="text" value="Hola NexIA, quiero contarles mi caso.">
             <h3 data-i18n="forms.caseTitle">Cuéntanos tu caso</h3>
             <p class="form-purpose" data-i18n="forms.casePurpose">El formulario principal: recoge lo mínimo para poder responderte con una propuesta, no con preguntas.</p>
             <label>
               <span data-i18n="forms.fName">Tu nombre</span>
-              <input type="text" name="nombre" required data-i18n-ph="forms.phName" placeholder="María Fernanda">
+              <input type="text" name="nombre" required autocomplete="name" data-i18n-ph="forms.phName" placeholder="María Fernanda">
             </label>
             <label>
               <span data-i18n="forms.fBiz">Tu negocio</span>
-              <input type="text" name="negocio" required data-i18n-ph="forms.phBiz" placeholder="Restaurante La Brisa">
+              <input type="text" name="negocio" required autocomplete="organization" data-i18n-ph="forms.phBiz" placeholder="Restaurante La Brisa">
             </label>
             <label>
               <span data-i18n="forms.fContact">WhatsApp o correo</span>
-              <input type="text" name="contacto" required data-i18n-ph="forms.phContact" placeholder="755 000 0000">
+              <input type="tel" name="contacto" required inputmode="tel" autocomplete="tel" data-i18n-ph="forms.phContact" placeholder="755 000 0000">
             </label>
             <label>
               <span data-i18n="forms.fPain">¿Cuál es tu mayor problema?</span>
               <select name="problema" required>
+                <option value="" disabled selected data-i18n="forms.pickPain">Elige una opción</option>
                 <option value="No me llegan clientes" data-i18n="forms.painOpt1">No me llegan clientes</option>
                 <option value="Pierdo horas en lo repetitivo" data-i18n="forms.painOpt2">Pierdo horas en lo repetitivo</option>
                 <option value="Los dos" data-i18n="forms.painOpt3">Los dos</option>
@@ -230,18 +249,21 @@
               <textarea name="mas" rows="3" data-i18n-ph="forms.phMore" placeholder="…"></textarea>
             </label>
             <button type="submit" class="btn btn-primary btn-block" data-i18n="forms.caseBtn">Enviar mi caso</button>
+            <p class="form-confirm" hidden><span data-i18n="forms.confirmText">Se abrió WhatsApp con tu mensaje ya listo. Si no se abrió, </span><a class="confirm-link" href="https://wa.me/525658141504" target="_blank" rel="noopener" data-i18n="forms.confirmLink">toca aquí para intentarlo de nuevo</a>.</p>
           </form>
 
-          <form id="revision" class="form-card" novalidate>
+          <form id="revision" class="form-card" novalidate action="https://wa.me/525658141504" method="get">
+            <input type="hidden" name="text" value="Hola NexIA, quiero la revisión gratuita de mi negocio.">
             <h3 data-i18n="forms.revTitle">Revisión gratuita de tu presencia</h3>
             <p class="form-purpose" data-i18n="forms.revPurpose">El formulario corto para el primer contacto: pide poco porque todavía no hay confianza. Sin compromiso y sin precio escondido.</p>
             <label>
               <span data-i18n="forms.fBizName">Nombre del negocio</span>
-              <input type="text" name="negocio" required data-i18n-ph="forms.phBizName" placeholder="Hotel Casa del Mar">
+              <input type="text" name="negocio" required autocomplete="organization" data-i18n-ph="forms.phBizName" placeholder="Hotel Casa del Mar">
             </label>
             <label>
               <span data-i18n="forms.fCity">Ciudad</span>
               <select name="ciudad" required>
+                <option value="" disabled selected data-i18n="forms.pickCity">Elige tu ciudad</option>
                 <option value="Zihuatanejo">Zihuatanejo</option>
                 <option value="La Unión">La Unión</option>
                 <option value="Lázaro Cárdenas">Lázaro Cárdenas</option>
@@ -250,13 +272,14 @@
             </label>
             <label>
               <span data-i18n="forms.fPage">Tu página de Facebook o Instagram</span>
-              <input type="text" name="pagina" data-i18n-ph="forms.phPage" placeholder="facebook.com/…">
+              <input type="text" name="pagina" inputmode="url" data-i18n-ph="forms.phPage" placeholder="facebook.com/…">
             </label>
             <label>
               <span data-i18n="forms.fWa">WhatsApp</span>
-              <input type="text" name="whatsapp" required data-i18n-ph="forms.phWa" placeholder="755 000 0000">
+              <input type="tel" name="whatsapp" required inputmode="tel" autocomplete="tel" data-i18n-ph="forms.phWa" placeholder="755 000 0000">
             </label>
             <button type="submit" class="btn btn-primary btn-block" data-i18n="forms.revBtn">Quiero mi revisión</button>
+            <p class="form-confirm" hidden><span data-i18n="forms.confirmText">Se abrió WhatsApp con tu mensaje ya listo. Si no se abrió, </span><a class="confirm-link" href="https://wa.me/525658141504" target="_blank" rel="noopener" data-i18n="forms.confirmLink">toca aquí para intentarlo de nuevo</a>.</p>
           </form>
 
         </div>
@@ -265,10 +288,14 @@
 
     <!-- 9. CIERRE -->
     <section id="contacto" class="closing">
-      <div class="wrap">
+      <div class="closing-media">
+        <img src="assets/img/hero-la-union-panorama.jpg" srcset="assets/img/hero-la-union-panorama-800.jpg 800w, assets/img/hero-la-union-panorama.jpg 1600w" sizes="(max-width: 719px) 100vw, 1280px" alt="" width="1600" height="1000" loading="lazy">
+      </div>
+      <div class="closing-copy">
         <h2 data-i18n="close.title">Cuéntanos tu caso</h2>
         <p data-i18n="close.sub">Cuéntanos tu problema en un mensaje y te respondemos con una propuesta.</p>
         <a class="btn btn-primary btn-lg" id="waClose" href="https://wa.me/525658141504?text=Hola%20NexIA%2C%20quiero%20contarles%20mi%20caso." target="_blank" rel="noopener" data-i18n="close.btn">Hablar por WhatsApp</a>
+        <p class="close-tel">WhatsApp: <a href="https://wa.me/525658141504">56 5814 1504</a></p>
         <p class="close-area">NexIA · <span data-i18n="close.area">Zihuatanejo · La Unión · Lázaro Cárdenas</span></p>
       </div>
     </section>
@@ -280,6 +307,7 @@
       <div>
         <p><strong>NexIA</strong> · <span data-i18n="footer.area">Zihuatanejo · La Unión · Lázaro Cárdenas</span></p>
         <p class="footer-how" data-i18n="footer.how">Campañas de marketing · Automatizaciones con IA</p>
+        <p class="footer-tel">WhatsApp: <a href="https://wa.me/525658141504">56 5814 1504</a></p>
         <p class="footer-site">www.nexia.ing</p>
       </div>
     </div>

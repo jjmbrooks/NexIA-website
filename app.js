@@ -26,7 +26,7 @@ var STRINGS = {
     "hero.card1d": "Que te vean, te encuentren y se detengan.",
     "hero.card2t": "Menos horas perdidas",
     "hero.card2d": "Lo repetitivo, atendido solo.",
-    "media.trackCaption": "La calle de La Unión durante el desfile del 20 de noviembre de 2026.",
+    "media.trackCaption": "La playa de Majahua: la costa por donde pasan tus clientes.",
     "media.whoCaption": "La Unión desde el aire: el territorio donde trabajan nuestros clientes.",
     "pains.title": "¿Te suena familiar?",
     "pains.p1": "Publico en Facebook y casi nadie lo ve.",
@@ -89,6 +89,8 @@ var STRINGS = {
     "forms.painOpt1": "No me llegan clientes",
     "forms.painOpt2": "Pierdo horas en lo repetitivo",
     "forms.painOpt3": "Los dos",
+    "forms.painOpt4": "Apunto gastos y ventas en una libreta",
+    "forms.trust": "Tu número solo se usa para responderte. Te responde Jhonatan, de NexIA.",
     "forms.fMore": "Cuéntanos más (opcional)",
     "forms.caseBtn": "Enviar mi caso",
     "forms.revTitle": "Revisión gratuita de tu presencia",
@@ -140,7 +142,7 @@ var STRINGS = {
     "hero.card1d": "Get seen, get found, get them to stop.",
     "hero.card2t": "Fewer hours wasted",
     "hero.card2d": "The repetitive stuff, handled on its own.",
-    "media.trackCaption": "La Unión's main street during the 20 November 2026 parade.",
+    "media.trackCaption": "Majahua beach: the coast your clients walk along.",
     "media.whoCaption": "La Unión from above: the territory where our clients work.",
     "pains.title": "Sound familiar?",
     "pains.p1": "I post on Facebook and almost nobody sees it.",
@@ -203,6 +205,8 @@ var STRINGS = {
     "forms.painOpt1": "I'm not getting clients",
     "forms.painOpt2": "I lose hours on repetitive work",
     "forms.painOpt3": "Both",
+    "forms.painOpt4": "I track expenses and sales in a notebook",
+    "forms.trust": "Your number is only used to reply to you. Jhonatan from NexIA answers you.",
     "forms.fMore": "Tell us more (optional)",
     "forms.caseBtn": "Send my case",
     "forms.revTitle": "Free review of your presence",
@@ -242,11 +246,13 @@ var PAIN_MAP = {
   es: {
     "No me llegan clientes": "No me llegan clientes",
     "Pierdo horas en lo repetitivo": "Pierdo horas en lo repetitivo",
+    "Apunto gastos y ventas en una libreta": "Apunto gastos y ventas en una libreta",
     "Los dos": "Los dos"
   },
   en: {
     "No me llegan clientes": "I'm not getting clients",
     "Pierdo horas en lo repetitivo": "I lose hours on repetitive work",
+    "Apunto gastos y ventas en una libreta": "I track expenses and sales in a notebook",
     "Los dos": "Both"
   }
 };
@@ -341,6 +347,25 @@ function showConfirm(form, url) {
 }
 
 function init() {
+  /* Sin JS todo visible: la clase js activa el reveal on scroll. */
+  document.documentElement.classList.add("js");
+
+  /* Reveal on scroll: cada bloque entra una vez, con su retardo CSS. */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add("in");
+          revealObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
+
   var params = new URLSearchParams(window.location.search);
   var storedLang = null, storedTheme = null;
   try {

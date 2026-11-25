@@ -1,5 +1,6 @@
-/* NexIA — sitio para clientes. Mundo: Alberca al mediodía.
-   Yeso blanco, agua turquesa, terracota. Mobile first. */
+/* NexIA — sitio para clientes. Mundo v2: El chinchorro.
+   La red que pesca clientes y devuelve horas. Cuerda, malla, nudos y mar.
+   Mobile first. */
 
 :root {
   --terracotta: #c9785b;
@@ -12,6 +13,8 @@
   --blanco: #ffffff;
   --font-display: "Playfair Display", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Malla de la red: rombos tenues sobre la arena. */
+  --mesh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cpath d='M13 1 25 13 13 25 1 13Z' fill='none' stroke='%23c9785b' stroke-opacity='0.14'/%3E%3C/svg%3E");
 }
 
 html[data-theme="light"] {
@@ -28,6 +31,7 @@ html[data-theme="light"] {
   --shadow: 0 14px 30px rgba(58, 61, 64, 0.14);
   --shadow-card: 0 8px 22px rgba(58, 61, 64, 0.08);
   --water-bg: var(--azul);
+  --rope: var(--terracotta);
 }
 
 html[data-theme="dark"] {
@@ -44,6 +48,8 @@ html[data-theme="dark"] {
   --shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
   --shadow-card: 0 8px 22px rgba(0, 0, 0, 0.35);
   --water-bg: #22333d;
+  --rope: var(--terracotta);
+  --mesh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cpath d='M13 1 25 13 13 25 1 13Z' fill='none' stroke='%23e9dcc5' stroke-opacity='0.07'/%3E%3C/svg%3E");
 }
 
 * { box-sizing: border-box; }
@@ -82,6 +88,30 @@ img { max-width: 100%; display: block; }
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
 
+/* ---------- Reveal on scroll (solo con JS: sin JS todo visible) ---------- */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.js .reveal.in { opacity: 1; transform: none; }
+html.js .pain-knots li:nth-child(2) { transition-delay: 0.08s; }
+html.js .pain-knots li:nth-child(3) { transition-delay: 0.16s; }
+html.js .tracks .track:nth-child(2) { transition-delay: 0.1s; }
+html.js .steps li:nth-child(2) { transition-delay: 0.08s; }
+html.js .steps li:nth-child(3) { transition-delay: 0.16s; }
+html.js .who-grid article:nth-child(2) { transition-delay: 0.08s; }
+html.js .forms-grid form:nth-child(2) { transition-delay: 0.08s; }
+html.js .faq-list details:nth-child(2) { transition-delay: 0.08s; }
+
+/* ---------- Hilo continuo: riel fijo en el canal izquierdo ---------- */
+.page-thread {
+  position: fixed; top: 0; bottom: 0; z-index: 1;
+  left: max(10px, calc((100vw - 1080px) / 4));
+  width: 2px; background: var(--rope); opacity: 0.28;
+  pointer-events: none;
+}
+
 /* ---------- Header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
@@ -97,8 +127,15 @@ img { max-width: 100%; display: block; }
 .main-nav { display: none; gap: 22px; margin-left: 18px; }
 .main-nav a {
   text-decoration: none; font-size: 14px; font-weight: 500; color: var(--dim);
+  position: relative; padding-bottom: 2px;
+}
+.main-nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px;
+  background: var(--terracotta); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.25s ease;
 }
 .main-nav a:hover { color: var(--text); }
+.main-nav a:hover::after { transform: scaleX(1); }
 .header-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 
 .lang-toggle {
@@ -107,7 +144,8 @@ img { max-width: 100%; display: block; }
 }
 .lang-toggle button {
   border: 0; background: transparent; color: var(--dim);
-  padding: 12px 10px; cursor: pointer; font: inherit;
+  padding: 15px 12px; cursor: pointer; font: inherit;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 .lang-toggle button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
 
@@ -117,7 +155,9 @@ img { max-width: 100%; display: block; }
   font-size: 15px; cursor: pointer; line-height: 1;
   display: inline-flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.3s ease;
 }
+.theme-btn:hover { border-color: var(--terracotta); color: var(--text); transform: rotate(18deg); }
 .theme-btn svg { display: block; }
 html[data-theme="light"] .theme-btn .icon-moon { display: none; }
 html[data-theme="dark"] .theme-btn .icon-sun { display: none; }
@@ -129,155 +169,190 @@ html[data-theme="dark"] .theme-btn .icon-sun { display: none; }
   font-weight: 700; font-size: 15px;
   border: 0; border-radius: 999px; padding: 12px 22px; cursor: pointer;
   font-family: var(--font-body);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  box-shadow: 0 2px 0 rgba(58, 61, 64, 0.18);
 }
-.btn:hover { filter: brightness(1.08); }
+.btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(58, 61, 64, 0.22); }
+.btn:active { transform: translateY(0); box-shadow: 0 2px 0 rgba(58, 61, 64, 0.18); }
 .btn-sm { padding: 8px 14px; font-size: 13px; }
 .btn-lg { padding: 14px 28px; font-size: 17px; }
 .btn-block { display: block; width: 100%; }
 
-/* ---------- Hero ---------- */
-.hero { padding: 0 0 56px; background: var(--bg-soft); }
-.hero-grid { display: grid; gap: 28px; }
-.hero-media {
-  margin: 0 calc(50% - 50vw);
-  overflow: hidden;
-  border-radius: 0 0 18px 18px;
-  box-shadow: var(--shadow);
-}
-.hero-media img {
+/* ---------- Hero: la mar arriba, la red abajo ---------- */
+.hero { background: var(--bg-soft); padding-bottom: 64px; }
+.hero-photo { margin: 0; overflow: hidden; }
+.hero-photo img {
   width: 100%; height: 100%;
-  aspect-ratio: 16 / 10; object-fit: cover; object-position: center 68%;
+  aspect-ratio: 16 / 10; object-fit: cover; object-position: center 42%;
   animation: hero-settle 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 @keyframes hero-settle {
   from { transform: scale(1.045); }
   to { transform: scale(1); }
 }
-.hero-copy { padding-top: 4px; }
+/* La cuerda madre cruza entre el mar y la arena, con su nudo. */
+.hero-rope {
+  position: relative; height: 2px; background: var(--rope); opacity: 0.85;
+  animation: rope-draw 1s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: left center;
+}
+@keyframes rope-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes rope-draw-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+.rope-knot {
+  position: absolute; left: 50%; top: 50%; width: 13px; height: 13px;
+  background: var(--terracotta); border: 2px solid var(--bg-soft);
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation: knot-pop 0.45s 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes knot-pop {
+  from { opacity: 0; transform: translate(-50%, -50%) rotate(45deg) scale(0.4); }
+  to { opacity: 1; transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+}
+.hero-panel { padding-top: 40px; }
 .hero h1 {
   font-size: clamp(2.1rem, 9vw, 3.6rem);
   font-weight: 900;
-  max-width: 16ch;
+  max-width: 18ch;
 }
 .hero-sub { margin-top: 18px; font-size: 17px; color: var(--dim); max-width: 56ch; }
 .hero-cta { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
-.hero-secondary { font-weight: 600; }
-.hero-results {
-  display: grid;
+.hero-secondary { font-weight: 600; transition: color 0.2s ease; }
+.hero-secondary:hover { color: var(--accent); }
+/* Dos paneles de red: cada resultado es un nudo con su icono. */
+.hero-results { margin-top: 34px; display: grid; gap: 14px; }
+.net-panel {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
-.hero-results article { padding: 22px 20px; }
-.hero-results article + article { border-top: 1px solid var(--border); }
+/* El nudo sentado sobre el borde: el acento es un nudo, no una barra. */
+.net-panel::before {
+  content: ""; position: absolute; top: -6px; left: 22px;
+  width: 11px; height: 11px; background: var(--terracotta);
+  transform: rotate(45deg);
+}
+.net-panel:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--terracotta); }
+.panel-icon { color: var(--terracotta); margin-bottom: 10px; }
 .hero-card-title {
   font-family: var(--font-display);
   font-size: 20px; font-weight: 800; line-height: 1.15;
 }
-.hero-results p { margin-top: 6px; color: var(--dim); font-size: 15px; }
+.net-panel p { margin-top: 6px; color: var(--dim); font-size: 15px; }
+.net-panel .hero-card-title { margin-top: 0; color: var(--text); }
 
 /* ---------- Sections ---------- */
 .section { padding: 64px 0; }
-/* Hilo continuo: una línea terracota baja por las 7 secciones de contenido,
-   con el diamante del logo sentado sobre ella en cada título. Se extiende
-   por el padding de cada sección para que los tramos se encuentren. */
-.section .wrap::before {
-  content: ""; position: absolute; left: 11px; top: -64px; bottom: -64px;
-  width: 2px; background: var(--terracotta); opacity: 0.35;
-}
-.section-sand { background: var(--surface); }
+.section-mesh { background-color: var(--bg-soft); background-image: var(--mesh); }
 .section-water { background: var(--water-bg); }
-/* La nota va directa sobre el azul: el gris tenue (3.24:1) no llega a AA,
-   así que en esta banda usa el color de texto principal (6.58:1). */
+/* Sobre el azul, el texto principal (6.58:1 en claro), no el gris tenue. */
 .section-water .section-note { color: var(--text); }
 .section-title { font-size: clamp(1.7rem, 5.5vw, 2.3rem); font-weight: 800; }
-/* Hilo continuo: el diamante del logo marca cada sección. */
+/* El nudo del logo marca cada sección. */
 .section-title::before {
   content: "";
   display: block;
   width: 11px; height: 11px;
   background: var(--terracotta);
   transform: rotate(45deg);
-  margin: 0 0 18px -13px;
+  margin: 0 0 18px 5px;
 }
 .section-intro { margin-top: 12px; color: var(--dim); max-width: 60ch; }
 .section-note { margin-top: 24px; color: var(--dim); font-size: 15px; max-width: 60ch; }
 
-/* ---------- Cards ---------- */
-.card {
+/* ---------- Pains: tres nudos ---------- */
+.pain-knots { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 14px; }
+.pain-knots li {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 14px; padding: 20px;
   box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
-.section-sand .card, .section-water .card { background: var(--bg); }
-.card h2, .card h3 { font-size: 19px; font-weight: 800; }
-.card p { margin-top: 6px; color: var(--dim); font-size: 15px; }
+.pain-knots li:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--terracotta); }
+.pain-knots svg { color: var(--terracotta); margin-bottom: 12px; }
+.pain-knots p { font-size: 17px; line-height: 1.5; font-weight: 500; }
 
-/* ---------- Pains ---------- */
-.pain-list { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 12px; }
-.pain-list li {
-  padding-left: 26px; position: relative; font-size: 17px; line-height: 1.5;
-}
-.pain-list li::before {
-  content: "•"; position: absolute; left: 6px; color: var(--terracotta);
-  font-size: 22px; line-height: 1.3;
-}
-
-/* ---------- Pain → result tracks ---------- */
+/* ---------- Tracks: dos redes lado a lado ---------- */
+.tracks { margin-top: 32px; display: grid; gap: 20px; }
 .track {
-  margin-top: 32px; background: var(--bg); border: 1px solid var(--border);
-  border-radius: 16px; padding: 22px 20px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 18px; overflow: hidden;
   box-shadow: var(--shadow-card);
+  display: flex; flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.track-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 14px; }
-.track-head h3 { font-size: 21px; font-weight: 800; }
-/* Tarjeta de receta: el "cómo" en letra chica, como la receta junto a la muestra. */
+.track:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.track-media { margin: 0; }
+.track-media img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.track:hover .track-media img { transform: scale(1.025); }
+.track-media figcaption {
+  padding: 10px 16px; font-size: 13px; color: var(--dim);
+  background: var(--bg-soft); border-bottom: 1px solid var(--border);
+}
+/* Ilustración propia: la red que recoge mensajes y horas.
+   Los bocadillos usan currentColor para que se vean en los dos temas. */
+.track-art {
+  margin: 0; background: var(--bg-soft); border-bottom: 1px solid var(--border);
+  padding: 18px 20px 8px; color: var(--text);
+}
+.track-art svg { width: 100%; height: auto; display: block; }
+.track-head { padding: 20px 20px 0; }
+.track-icon { color: var(--terracotta); margin-bottom: 10px; }
+.track-head h3 { font-size: 22px; font-weight: 800; }
+/* Tarjeta de receta: el "cómo" en letra chica. */
 .how {
+  display: inline-block; margin-top: 10px;
   font-size: 12px; color: var(--dim); letter-spacing: 0.02em;
   border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px;
   background: var(--bg-soft);
 }
-.track-media {
-  margin: 20px 0 0;
-  border-radius: 14px; overflow: hidden;
-  /* Sin borde ni sombra propios: la foto es contenido dentro del panel
-     del track, no una tarjeta dentro de otra tarjeta. */
-}
-.track-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.track-media figcaption,
-.who-media figcaption {
-  padding: 10px 14px; font-size: 13px; color: var(--dim);
-  background: var(--bg);
-}
-.pain-result { margin: 14px 0 0; }
+.pain-result { margin: 8px 0 0; padding: 0 20px 20px; }
 .pain-result > div {
   padding: 14px 0; border-top: 1px solid var(--border);
   display: grid; gap: 4px;
 }
+.pain-result > div:first-child { border-top: 0; }
 .pain-result dt { font-size: 15px; }
 .pain-label { color: var(--dim); }
 .pain-result dd { margin: 0; font-size: 15px; font-weight: 600; }
 .pain-result dd::before { content: "→ "; color: var(--terracotta); font-weight: 700; }
 
-/* ---------- Steps ---------- */
+/* ---------- Steps: tres nudos en una cuerda ---------- */
 .steps {
-  list-style: none; margin: 30px 0 0; padding: 0;
-  display: grid; gap: 14px; counter-reset: step;
+  list-style: none; margin: 34px 0 0; padding: 0;
+  display: grid; gap: 14px; position: relative;
+}
+.steps::before {
+  content: ""; position: absolute; left: 36px; top: 20px; bottom: 20px;
+  width: 2px; background: var(--rope); opacity: 0.45;
 }
 .steps li {
+  position: relative;
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 14px; padding: 20px;
+  border-radius: 14px; padding: 20px 20px 20px 76px;
   box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
-.step-num {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: 50%;
+.steps li:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--terracotta); }
+.knot-num {
+  position: absolute; left: 20px; top: 20px;
+  width: 34px; height: 34px;
   background: var(--accent); color: var(--accent-ink);
-  font-weight: 700; font-size: 15px;
+  transform: rotate(45deg); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
 }
-.steps h3 { margin-top: 14px; font-size: 19px; font-weight: 800; }
+.knot-num span { transform: rotate(-45deg); font-weight: 700; font-size: 15px; }
+.step-icon { color: var(--terracotta); margin-top: 2px; }
+.steps h3 { margin-top: 10px; font-size: 19px; font-weight: 800; }
 .steps p { margin-top: 6px; color: var(--dim); font-size: 15px; }
 
 /* ---------- Who ---------- */
@@ -287,14 +362,32 @@ html[data-theme="dark"] .theme-btn .icon-sun { display: none; }
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
-.who-media img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.who-media img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.who-media:hover img { transform: scale(1.02); }
+.who-media figcaption {
+  padding: 10px 14px; font-size: 13px; color: var(--dim);
+  background: var(--bg);
+}
 .who-grid { margin-top: 26px; display: grid; gap: 14px; }
+.who-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.who-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--terracotta); }
+/* En oscuro la tarjeta (#242628) se pierde contra la banda (#22333d):
+   usa la superficie carbón para separarla. */
+html[data-theme="dark"] .section-water .who-card { background: var(--surface); }
+.who-card h3 { font-size: 19px; font-weight: 800; }
+.who-card p { margin-top: 6px; color: var(--dim); font-size: 15px; }
 
-/* ---------- Reserved results ---------- */
+/* ---------- Reserved results: la red vacía ---------- */
 .reserved {
   margin-top: 20px; border: 1px dashed var(--border); border-radius: 14px;
-  padding: 18px 22px; text-align: center; color: var(--dim);
+  padding: 26px 22px 22px; text-align: center; color: var(--dim);
 }
+.empty-net { width: 100%; max-width: 260px; height: auto; margin: 0 auto 14px; }
 .reserved p { max-width: 52ch; margin: 0 auto; font-size: 15px; }
 
 /* ---------- FAQ ---------- */
@@ -302,24 +395,43 @@ html[data-theme="dark"] .theme-btn .icon-sun { display: none; }
 .faq-list details {
   background: var(--bg); border: 1px solid var(--border);
   border-radius: 12px; padding: 16px 18px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+.faq-list details:hover { border-color: var(--terracotta); }
+.faq-list details[open ] { border-color: var(--terracotta); box-shadow: var(--shadow-card); }
 .faq-list summary { font-family: var(--font-display); font-weight: 800; font-size: 18px; cursor: pointer; list-style: none; }
 .faq-list summary::-webkit-details-marker { display: none; }
 .faq-list summary::before {
   content: ""; display: inline-block;
   width: 9px; height: 9px; background: var(--terracotta);
   transform: rotate(45deg); margin-right: 10px; vertical-align: 1px;
+  transition: transform 0.25s ease;
 }
+.faq-list details[open ] summary::before { transform: rotate(135deg); }
 .faq-list details p { margin-top: 10px; color: var(--dim); }
+.faq-list details[open ] p { animation: faq-in 0.3s ease both; }
+@keyframes faq-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
 
 /* ---------- Forms ---------- */
 .forms-grid { margin-top: 28px; display: grid; gap: 18px; }
 .form-card {
+  position: relative;
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 16px; padding: 22px 20px;
   box-shadow: var(--shadow-card);
   display: flex; flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+/* El nudo sentado sobre el borde: el acento es un nudo, no una barra. */
+.form-card::before {
+  content: ""; position: absolute; top: -6px; left: 22px;
+  width: 11px; height: 11px; background: var(--terracotta);
+  transform: rotate(45deg);
+}
+.form-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .form-card h3 { font-size: 21px; font-weight: 800; }
 .form-purpose { margin-top: 8px; color: var(--dim); font-size: 15px; }
 .form-card label { display: block; margin-top: 16px; }
@@ -330,10 +442,14 @@ html[data-theme="dark"] .theme-btn .icon-sun { display: none; }
   width: 100%; font: inherit; font-size: 15px; color: var(--text);
   background: var(--field); border: 1px solid var(--border);
   border-radius: 10px; padding: 11px 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .form-card input:focus,
 .form-card select:focus,
 .form-card textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.form-card input:hover,
+.form-card select:hover,
+.form-card textarea:hover { border-color: var(--terracotta); }
 .form-card label:last-of-type { margin-bottom: 20px; }
 .form-card .btn { margin-top: auto; }
 .form-confirm { margin-top: 12px; font-size: 14px; color: var(--dim); }
@@ -344,17 +460,23 @@ html[data-theme="dark"] .theme-btn .icon-sun { display: none; }
 .closing-media { position: relative; overflow: hidden; }
 .closing-media img {
   width: 100%; height: 100%;
-  aspect-ratio: 21 / 9; object-fit: cover; object-position: center 38%;
-  min-height: 340px;
+  aspect-ratio: 21 / 9; object-fit: cover; object-position: center 45%;
+  min-height: 380px;
 }
 .closing-media::after {
   content: ""; position: absolute; inset: 0;
-  background: rgba(28, 29, 31, 0.62);
+  /* 0.68: el párrafo (blanco 0.95) pasa 4.5:1 incluso sobre la espuma
+     más clara de la foto; con 0.62 quedaba en 4.24:1 en el peor caso. */
+  background: rgba(28, 29, 31, 0.68);
 }
 .closing-copy {
   position: absolute; inset: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 48px 20px; color: #fff;
+}
+.closing-knot {
+  width: 12px; height: 12px; background: var(--terracotta);
+  transform: rotate(45deg); margin-bottom: 22px;
 }
 .closing h2 { font-size: clamp(1.9rem, 6vw, 2.7rem); font-weight: 900; color: #fff; }
 .closing-copy p { margin-top: 12px; color: rgba(255, 255, 255, 0.95); max-width: 52ch; }
@@ -364,7 +486,7 @@ html[data-theme="dark"] .theme-btn .icon-sun { display: none; }
 .close-area { margin-top: 24px !important; font-size: 14px; color: rgba(255, 255, 255, 0.92) !important; }
 
 /* ---------- Footer ---------- */
-.site-footer { border-top: 1px solid var(--border); padding: 28px 0 110px; }
+.site-footer { border-top: 1px solid var(--border); padding: 28px 0 110px; background-image: var(--mesh); }
 .footer-inner { display: flex; gap: 14px; align-items: flex-start; }
 .footer-logo { flex-shrink: 0; margin-top: 2px; }
 .site-footer p { font-size: 14px; }
@@ -387,37 +509,61 @@ body.hide-sticky .sticky-bar { display: none; }
 /* ---------- Desktop ---------- */
 @media (min-width: 720px) {
   .main-nav { display: flex; }
-  .hero { padding: 64px 0 72px; }
-  .hero-grid {
-    grid-template-columns: 1fr 1.05fr;
-    grid-template-areas:
-      "copy media"
-      "results results";
-    align-items: center;
-    column-gap: 44px;
+  /* Hero partido: el texto en la arena a la izquierda, la foto
+     rompe el borde derecho de la retícula y la malla corre en
+     diagonal detrás de ambos. La cuerda es la costura vertical
+     entre el mar y la arena. */
+  .hero {
+    padding-bottom: 0;
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    position: relative; overflow: hidden;
   }
-  .hero-copy { grid-area: copy; }
-  .hero-media {
-    grid-area: media;
-    margin: 0 calc(50% - 50vw) 0 0;
-    border-radius: 18px 0 0 18px;
-    aspect-ratio: 16 / 10;
+  .hero::before {
+    content: ""; position: absolute; inset: -30% -10%; z-index: 0;
+    background-image: var(--mesh); transform: rotate(-6deg); opacity: 0.6;
+    pointer-events: none;
   }
-  .hero-media img { aspect-ratio: auto; }
-  .hero-results { grid-area: results; grid-template-columns: 1fr 1fr; margin-top: -28px; }
-  .hero-results article + article { border-top: 0; border-left: 1px solid var(--border); }
-  .track-media img { aspect-ratio: 16 / 9; }
+  .hero-panel {
+    grid-column: 1; grid-row: 1; position: relative; z-index: 1;
+    padding: 56px 36px 64px 20px;
+  }
+  .hero-photo { grid-column: 2; grid-row: 1; position: relative; z-index: 1; }
+  .hero-photo img { aspect-ratio: auto; height: 100%; object-position: center 42%; }
+  .hero-rope {
+    position: absolute; z-index: 2;
+    left: 45.45%; top: 0; bottom: 0; width: 2px; height: auto;
+    animation: rope-draw-y 1s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+    transform-origin: top center;
+  }
+  .hero-results { grid-template-columns: 1fr 1fr; }
+  .pain-knots { grid-template-columns: repeat(3, 1fr); }
+  .tracks { grid-template-columns: 1fr 1fr; align-items: start; }
   .steps { grid-template-columns: repeat(3, 1fr); }
-  .who-grid { grid-template-columns: 1fr 1fr; }
+  .steps::before { left: 12%; right: 12%; top: 37px; bottom: auto; width: auto; height: 2px; }
+  .steps li { padding: 20px; text-align: left; }
+  .steps li .knot-num { position: static; margin-bottom: 16px; }
+  .who-grid { grid-template-columns: 1.35fr 1fr; }
   .forms-grid { grid-template-columns: 1fr 1fr; align-items: stretch; }
-  .pain-result > div { grid-template-columns: 1fr 1fr; gap: 20px; }
   .sticky-bar { display: none; }
   .site-footer { padding-bottom: 40px; }
 }
 
+@media (min-width: 1120px) {
+  /* El texto del hero se alinea con el resto de la página.
+     Valores fijos por ancho (1280 / 1600 / 1920): el detector
+     resuelve cualquier calc() en este padding como 0 y marca
+     cramped-padding; sin calc no hay falso positivo. */
+  .hero-panel { padding-left: 120px; }
+}
+@media (min-width: 1600px) {
+  .hero-panel { padding-left: 280px; }
+}
+@media (min-width: 1920px) {
+  .hero-panel { padding-left: 440px; }
+}
+
 @media (min-width: 1024px) {
   .section { padding: 80px 0; }
-  .section .wrap::before { top: -80px; bottom: -80px; }
   .hero h1 { font-size: 3.6rem; }
 }
 
@@ -427,5 +573,7 @@ body.hide-sticky .sticky-bar { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-media img { animation: none; }
+  .hero-photo img, .hero-rope, .rope-knot { animation: none; }
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+  .faq-list details[open ] p { animation: none; }
 }

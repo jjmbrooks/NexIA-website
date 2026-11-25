@@ -12,15 +12,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="page-thread" aria-hidden="true"></div>
   <header class="site-header">
     <a class="brand" href="#inicio" aria-label="NexIA — inicio">
       <img id="logoImg" src="logo/nexia-logo-horizontal-color.svg" alt="NexIA" height="40">
     </a>
     <nav class="main-nav" aria-label="Navegación principal">
       <a href="#resultados" data-i18n="nav.changes">Lo que cambia</a>
-      <a href="#resultados-reales" data-i18n="nav.realResults">Resultados reales</a>
       <a href="#como" data-i18n="nav.how">Cómo funciona</a>
       <a href="#para-quien" data-i18n="nav.who">Para quién es</a>
+      <a href="#resultados-reales" data-i18n="nav.realResults">Resultados reales</a>
       <a href="#faq" data-i18n="nav.faq">Preguntas</a>
     </nav>
     <div class="header-actions">
@@ -37,26 +38,27 @@
   </header>
 
   <main id="inicio">
-    <!-- 1. HERO -->
+    <!-- 1. HERO: la mar arriba, la red abajo. La foto es el mar; el texto, la arena. -->
     <section class="hero">
-      <div class="wrap hero-grid">
-        <figure class="hero-media">
-          <img src="assets/img/hero-la-union-panorama.jpg" srcset="assets/img/hero-la-union-panorama-800.jpg 800w, assets/img/hero-la-union-panorama.jpg 1600w" sizes="(max-width: 719px) 100vw, 620px" alt="La Unión, Guerrero, desde el aire: el pueblo, el río y el entronque" width="1600" height="1000" fetchpriority="high">
-        </figure>
-        <div class="hero-copy">
-          <h1 data-i18n="hero.title">Clientes que llegan. Horas que regresan.</h1>
-          <p class="hero-sub" data-i18n="hero.sub">Tu negocio no necesita más publicaciones: necesita gente entrando por la puerta y menos horas perdidas en lo que se repite todos los días.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#caso" data-i18n="hero.cta">Cuéntanos tu caso</a>
-            <a class="hero-secondary" href="#como" data-i18n="hero.secondary">Ver cómo funciona</a>
-          </div>
+      <figure class="hero-photo">
+        <img src="assets/img/hero-bahia-majahua.jpg" srcset="assets/img/hero-bahia-majahua-800.jpg 800w, assets/img/hero-bahia-majahua.jpg 1600w" sizes="(max-width: 719px) 100vw, 55vw" alt="La bahía de Majahua, Guerrero, desde el aire: la playa, el oleaje y la costa" width="1600" height="1000" fetchpriority="high">
+      </figure>
+      <div class="hero-rope" aria-hidden="true"><span class="rope-knot"></span></div>
+      <div class="wrap hero-panel reveal">
+        <h1 data-i18n="hero.title">Clientes que llegan. Horas que regresan.</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Tu negocio no necesita más publicaciones: necesita gente entrando por la puerta y menos horas perdidas en lo que se repite todos los días.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#caso" data-i18n="hero.cta">Cuéntanos tu caso</a>
+          <a class="hero-secondary" href="#como" data-i18n="hero.secondary">Ver cómo funciona</a>
         </div>
         <div class="hero-results">
-          <article>
+          <article class="net-panel">
+            <svg class="panel-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5 5.2 4h13.6L20 9.5"/><path d="M4 9.5V20h16V9.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
             <p class="hero-card-title" data-i18n="hero.card1t">Más clientes entrando</p>
             <p data-i18n="hero.card1d">Que te vean, te encuentren y se detengan.</p>
           </article>
-          <article>
+          <article class="net-panel">
+            <svg class="panel-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>
             <p class="hero-card-title" data-i18n="hero.card2t">Menos horas perdidas</p>
             <p data-i18n="hero.card2d">Lo repetitivo, atendido solo.</p>
           </article>
@@ -64,98 +66,135 @@
       </div>
     </section>
 
-    <!-- 2. ¿TE SUENA FAMILIAR? -->
+    <!-- 2. ¿TE SUENA FAMILIAR? Tres nudos de la misma red. -->
     <section id="problemas" class="section">
       <div class="wrap">
-        <h2 class="section-title" data-i18n="pains.title">¿Te suena familiar?</h2>
-        <ul class="pain-list">
-          <li data-i18n="pains.p1">Publico en Facebook y casi nadie lo ve.</li>
-          <li data-i18n="pains.p2">Contesto los mismos mensajes todo el día.</li>
-          <li data-i18n="pains.p3">Apunto gastos y ventas en una libreta.</li>
+        <h2 class="section-title reveal" data-i18n="pains.title">¿Te suena familiar?</h2>
+        <ul class="pain-knots">
+          <li class="reveal">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l6 4V6l-6 4H4z"/><path d="M16.5 9.5a4 4 0 0 1 0 5"/><path d="M4 4l16 16"/></svg>
+            <p data-i18n="pains.p1">Publico en Facebook y casi nadie lo ve.</p>
+          </li>
+          <li class="reveal">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="13" height="10" rx="2.5"/><path d="M7 14v3l3-3"/><path d="M7 8h6M7 11h4"/></svg>
+            <p data-i18n="pains.p2">Contesto los mismos mensajes todo el día.</p>
+          </li>
+          <li class="reveal">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="13" height="18" rx="2"/><path d="M4 7h3M4 12h3M4 17h3"/><path d="M11 8h6M11 12h6"/></svg>
+            <p data-i18n="pains.p3">Apunto gastos y ventas en una libreta.</p>
+          </li>
         </ul>
-        <p class="section-note" data-i18n="pains.note">Si alguna de estas te suena, no eres el único: es lo que escuchamos todos los días de negocios como el tuyo.</p>
+        <p class="section-note reveal" data-i18n="pains.note">Si alguna de estas te suena, no eres el único: es lo que escuchamos todos los días de negocios como el tuyo.</p>
       </div>
     </section>
 
-    <!-- 3. LO QUE CAMBIA -->
-    <section id="resultados" class="section section-sand">
+    <!-- 3. LO QUE CAMBIA: dos redes, lado a lado. -->
+    <section id="resultados" class="section section-mesh">
       <div class="wrap">
-        <h2 class="section-title" data-i18n="changes.title">Lo que cambia</h2>
-        <p class="section-intro" data-i18n="changes.intro">Dos resultados, no dos productos. El cómo va en letra chica, porque lo que compras es el resultado.</p>
+        <h2 class="section-title reveal" data-i18n="changes.title">Lo que cambia</h2>
+        <p class="section-intro reveal" data-i18n="changes.intro">Dos resultados, no dos productos. El cómo va en letra chica, porque lo que compras es el resultado.</p>
 
-        <article class="track">
-          <div class="track-head">
-            <h3 data-i18n="changes.track1t">«Quiero más clientes»</h3>
-            <p class="how" data-i18n="changes.track1how">Cómo: campañas de marketing</p>
-          </div>
-          <figure class="track-media">
-            <img src="assets/img/calle-desfile.jpg" srcset="assets/img/calle-desfile-800.jpg 800w, assets/img/calle-desfile.jpg 1200w" sizes="(max-width: 719px) 100vw, 1040px" alt="La calle de La Unión llena de gente durante el desfile" loading="lazy">
-            <figcaption data-i18n="media.trackCaption">La calle de La Unión durante el desfile del 20 de noviembre de 2026.</figcaption>
-          </figure>
-          <dl class="pain-result">
-            <div>
-              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r1p">La gente pasa frente a mi negocio y no se detiene.</span></dt>
-              <dd data-i18n="changes.t1r1r">Que entren: convertir el paso de todos los días en visitas.</dd>
+        <div class="tracks">
+          <article class="track reveal">
+            <figure class="track-media">
+              <img src="assets/img/playa-oleaje.jpg" srcset="assets/img/playa-oleaje-800.jpg 800w, assets/img/playa-oleaje.jpg 1200w" sizes="(max-width: 719px) 100vw, 520px" alt="La playa de Majahua desde el aire: el oleaje llegando a la arena" loading="lazy">
+              <figcaption data-i18n="media.trackCaption">La playa de Majahua: la costa por donde pasan tus clientes.</figcaption>
+            </figure>
+            <div class="track-head">
+              <svg class="track-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="7"/><path d="M5 14h14"/><path d="M12 7V4"/><circle cx="12" cy="3" r="0.6"/></svg>
+              <h3 data-i18n="changes.track1t">«Quiero más clientes»</h3>
+              <p class="how" data-i18n="changes.track1how">Cómo: campañas de marketing</p>
             </div>
-            <div>
-              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r2p">Publico en Facebook y casi nadie lo ve.</span></dt>
-              <dd data-i18n="changes.t1r2r">Que cada publicación trabaje para traer gente, no solo para “estar presente”.</dd>
-            </div>
-            <div>
-              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r3p">Mi competencia sí aparece en redes; yo no existo.</span></dt>
-              <dd data-i18n="changes.t1r3r">Existir donde el cliente busca: en redes y en Google.</dd>
-            </div>
-            <div>
-              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r4p">Dependo de las recomendaciones y de la temporada.</span></dt>
-              <dd data-i18n="changes.t1r4r">Demanda más constante, también fuera de temporada.</dd>
-            </div>
-          </dl>
-        </article>
+            <dl class="pain-result">
+              <div>
+                <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r1p">La gente pasa frente a mi negocio y no se detiene.</span></dt>
+                <dd data-i18n="changes.t1r1r">Que entren: convertir el paso de todos los días en visitas.</dd>
+              </div>
+              <div>
+                <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r2p">Publico en Facebook y casi nadie lo ve.</span></dt>
+                <dd data-i18n="changes.t1r2r">Que cada publicación trabaje para traer gente, no solo para “estar presente”.</dd>
+              </div>
+              <div>
+                <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r3p">Mi competencia sí aparece en redes; yo no existo.</span></dt>
+                <dd data-i18n="changes.t1r3r">Existir donde el cliente busca: en redes y en Google.</dd>
+              </div>
+              <div>
+                <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t1r4p">Dependo de las recomendaciones y de la temporada.</span></dt>
+                <dd data-i18n="changes.t1r4r">Demanda más constante, también fuera de temporada.</dd>
+              </div>
+            </dl>
+          </article>
 
-        <article class="track">
-          <div class="track-head">
-            <h3 data-i18n="changes.track2t">«Quiero dejar de perder el tiempo»</h3>
-            <p class="how" data-i18n="changes.track2how">Cómo: automatizaciones con IA</p>
-          </div>
-          <dl class="pain-result">
-            <div>
-              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r1p">Contesto los mismos mensajes todo el día, hasta en domingo.</span></dt>
-              <dd data-i18n="changes.t2r1r">Respuestas que atienden al cliente mientras tú no estás.</dd>
+          <article class="track reveal">
+            <figure class="track-art" aria-hidden="true">
+              <svg viewBox="0 0 360 190" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                  <pattern id="meshPat" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M11 0 22 11 11 22 0 11Z" stroke="#c9785b" stroke-width="1" opacity="0.55"/>
+                  </pattern>
+                </defs>
+                <path d="M20 150 Q180 60 340 150 L340 178 Q180 96 20 178 Z" fill="url(#meshPat)"/>
+                <path d="M20 150 Q180 60 340 150" stroke="#a34a2e" stroke-width="2.5"/>
+                <path d="M20 178 Q180 96 340 178" stroke="#a34a2e" stroke-width="2.5"/>
+                <rect x="52" y="34" width="72" height="40" rx="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M66 74v10l12-10" stroke="currentColor" stroke-width="2"/>
+                <path d="M64 48h48M64 58h32" stroke="currentColor" stroke-width="2"/>
+                <rect x="150" y="18" width="72" height="40" rx="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M164 58v10l12-10" stroke="currentColor" stroke-width="2"/>
+                <path d="M162 32h48M162 42h32" stroke="currentColor" stroke-width="2"/>
+                <circle cx="272" cy="52" r="26" stroke="#a34a2e" stroke-width="2.5"/>
+                <path d="M272 38v14l10 6" stroke="#a34a2e" stroke-width="2.5"/>
+                <circle cx="180" cy="128" r="4" fill="#c9785b" stroke="none"/>
+              </svg>
+            </figure>
+            <div class="track-head">
+              <svg class="track-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>
+              <h3 data-i18n="changes.track2t">«Quiero dejar de perder el tiempo»</h3>
+              <p class="how" data-i18n="changes.track2how">Cómo: automatizaciones con IA</p>
             </div>
-            <div>
-              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r2p">Apunto gastos y ventas en libretas, o de memoria.</span></dt>
-              <dd data-i18n="changes.t2r2r">Registro automático: sabes qué entra y qué sale sin capturar nada a mano.</dd>
-            </div>
-            <div>
-              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r3p">Se me van clientes porque contesto tarde.</span></dt>
-              <dd data-i18n="changes.t2r3r">Nadie se queda esperando: el seguimiento ya no se olvida.</dd>
-            </div>
-            <div>
-              <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r4p">Pierdo horas en tareas que se repiten igual cada semana.</span></dt>
-              <dd data-i18n="changes.t2r4r">Horas que regresan para atender el negocio, no el papeleo.</dd>
-            </div>
-          </dl>
-        </article>
+            <dl class="pain-result">
+              <div>
+                <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r1p">Contesto los mismos mensajes todo el día, hasta en domingo.</span></dt>
+                <dd data-i18n="changes.t2r1r">Respuestas que atienden al cliente mientras tú no estás.</dd>
+              </div>
+              <div>
+                <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r2p">Apunto gastos y ventas en libretas, o de memoria.</span></dt>
+                <dd data-i18n="changes.t2r2r">Registro automático: sabes qué entra y qué sale sin capturar nada a mano.</dd>
+              </div>
+              <div>
+                <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r3p">Se me van clientes porque contesto tarde.</span></dt>
+                <dd data-i18n="changes.t2r3r">Nadie se queda esperando: el seguimiento ya no se olvida.</dd>
+              </div>
+              <div>
+                <dt><span class="pain-label" data-i18n="changes.painLabel">El problema: </span><span data-i18n="changes.t2r4p">Pierdo horas en tareas que se repiten igual cada semana.</span></dt>
+                <dd data-i18n="changes.t2r4r">Horas que regresan para atender el negocio, no el papeleo.</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- 4. ASÍ TRABAJAMOS -->
+    <!-- 4. ASÍ TRABAJAMOS: tres nudos en una misma cuerda. -->
     <section id="como" class="section">
       <div class="wrap">
-        <h2 class="section-title" data-i18n="process.title">Así trabajamos</h2>
+        <h2 class="section-title reveal" data-i18n="process.title">Así trabajamos</h2>
         <ol class="steps">
-          <li>
-            <span class="step-num">1</span>
+          <li class="reveal">
+            <span class="knot-num" aria-hidden="true"><span>1</span></span>
+            <svg class="step-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9h8M8 12h5"/></svg>
             <h3 data-i18n="process.s1t">Escuchamos tu caso</h3>
             <p data-i18n="process.s1d">Nos cuentas tu problema en tus palabras, sin tecnicismos.</p>
           </li>
-          <li>
-            <span class="step-num">2</span>
+          <li class="reveal">
+            <span class="knot-num" aria-hidden="true"><span>2</span></span>
+            <svg class="step-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2"/><path d="M12 7 6.5 20M12 7l5.5 13"/><path d="M8.5 14h7"/></svg>
             <h3 data-i18n="process.s2t">Diseñamos a tu medida</h3>
             <p data-i18n="process.s2d">La campaña o el sistema, hechos para tu negocio.</p>
           </li>
-          <li>
-            <span class="step-num">3</span>
+          <li class="reveal">
+            <span class="knot-num" aria-hidden="true"><span>3</span></span>
+            <svg class="step-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15a8 8 0 1 1 16 0"/><path d="M12 15l4.5-4.5"/><circle cx="12" cy="15" r="1.4"/></svg>
             <h3 data-i18n="process.s3t">Medimos y ajustamos</h3>
             <p data-i18n="process.s3d">Revisamos qué funciona y lo afinamos contigo.</p>
           </li>
@@ -163,48 +202,61 @@
       </div>
     </section>
 
-    <!-- 5. ¿PARA QUIÉN ES? -->
+    <!-- 5. ¿PARA QUIÉN ES? La costa es el territorio. -->
     <section id="para-quien" class="section section-water">
       <div class="wrap">
-        <h2 class="section-title" data-i18n="who.title">¿Para quién es?</h2>
-        <figure class="who-media">
+        <h2 class="section-title reveal" data-i18n="who.title">¿Para quién es?</h2>
+        <figure class="who-media reveal">
           <img src="assets/img/la-union-aerea.jpg" srcset="assets/img/la-union-aerea-800.jpg 800w, assets/img/la-union-aerea.jpg 1600w" sizes="(max-width: 719px) 100vw, 1040px" alt="La Unión, Guerrero, desde el aire" loading="lazy">
           <figcaption data-i18n="media.whoCaption">La Unión desde el aire: el territorio donde trabajan nuestros clientes.</figcaption>
         </figure>
         <div class="who-grid">
-          <article class="card">
+          <article class="who-card who-card-wide reveal">
+            <svg class="panel-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5 5.2 4h13.6L20 9.5"/><path d="M4 9.5V20h16V9.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
             <h3 data-i18n="who.c1t">Negocios locales</h3>
             <p data-i18n="who.c1d">Negocios de Zihuatanejo, La Unión y Lázaro Cárdenas que quieren clientes.</p>
           </article>
-          <article class="card">
+          <article class="who-card reveal">
+            <svg class="panel-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg>
             <h3 data-i18n="who.c2t">Dueños a distancia</h3>
             <p data-i18n="who.c2d">Dueños de propiedades en Troncones, Majahua y Saladita que rentan a distancia.</p>
           </article>
         </div>
-        <p class="section-note" data-i18n="who.not">Con respeto: no es para quien solo quiere más publicaciones sin medir si traen clientes.</p>
+        <p class="section-note reveal" data-i18n="who.not">Con respeto: no es para quien solo quiere más publicaciones sin medir si traen clientes.</p>
       </div>
     </section>
 
-    <!-- 6. RESULTADOS REALES -->
+    <!-- 6. RESULTADOS REALES: la red todavía vacía, a propósito. -->
     <section id="resultados-reales" class="section">
       <div class="wrap">
-        <h2 class="section-title" data-i18n="proof.title">Resultados reales</h2>
-        <div class="reserved">
+        <h2 class="section-title reveal" data-i18n="proof.title">Resultados reales</h2>
+        <div class="reserved reveal">
+          <svg class="empty-net" viewBox="0 0 260 132" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <defs>
+              <pattern id="meshPat2" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M10 0 20 10 10 20 0 10Z" stroke="#c9785b" stroke-width="1" opacity="0.6"/>
+              </pattern>
+            </defs>
+            <path d="M30 22 H230" stroke="#a34a2e" stroke-width="2.5"/>
+            <path d="M30 22 V96 Q130 124 230 96 V22" fill="url(#meshPat2)" stroke="#a34a2e" stroke-width="2"/>
+            <circle cx="130" cy="22" r="5" fill="#c9785b" stroke="none"/>
+            <path d="M230 96 q10 14 2 26" stroke="#a34a2e" stroke-width="2"/>
+          </svg>
           <p data-i18n="proof.body">Este espacio se llenará con casos y testimonios reales cuando existan. Nada de cifras de relleno ni testimonios inventados: lo que veas aquí será de clientes de verdad.</p>
         </div>
       </div>
     </section>
 
     <!-- 7. PREGUNTAS DE SIEMPRE -->
-    <section id="faq" class="section section-sand">
+    <section id="faq" class="section section-mesh">
       <div class="wrap">
-        <h2 class="section-title" data-i18n="faq.title">Preguntas de siempre</h2>
+        <h2 class="section-title reveal" data-i18n="faq.title">Preguntas de siempre</h2>
         <div class="faq-list">
-          <details>
+          <details class="reveal">
             <summary data-i18n="faq.q1">¿Y eso cuánto cuesta?</summary>
             <p data-i18n="faq.a1">Proyectos con precio cerrado, sin mensualidad obligatoria.</p>
           </details>
-          <details>
+          <details class="reveal">
             <summary data-i18n="faq.q2">¿Necesito saber de tecnología?</summary>
             <p data-i18n="faq.a2">No: lo operamos nosotros.</p>
           </details>
@@ -215,12 +267,14 @@
     <!-- 8. FORMULARIOS -->
     <section id="formularios" class="section">
       <div class="wrap">
-        <h2 class="section-title" data-i18n="forms.title">Empecemos por tu caso</h2>
-        <p class="section-intro" data-i18n="forms.intro">Dos formas de empezar, las dos cortas a propósito. Al enviar, se abrirá WhatsApp con tu mensaje ya listo.</p>
+        <h2 class="section-title reveal" data-i18n="forms.title">Empecemos por tu caso</h2>
+        <p class="section-intro reveal" data-i18n="forms.intro">Dos formas de empezar, las dos cortas a propósito. Al enviar, se abrirá WhatsApp con tu mensaje ya listo.</p>
+        <noscript><p class="section-note">Sin JavaScript, el formulario no puede enviar tus datos: escríbenos directo por <a href="https://wa.me/525658141504">WhatsApp</a>.</p></noscript>
         <div class="forms-grid">
 
-          <form id="caso" class="form-card" novalidate action="https://wa.me/525658141504" method="get">
+          <form id="caso" class="form-card reveal" novalidate action="https://wa.me/525658141504" method="get">
             <input type="hidden" name="text" value="Hola NexIA, quiero contarles mi caso.">
+            <svg class="panel-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9h8M8 12h5"/></svg>
             <h3 data-i18n="forms.caseTitle">Cuéntanos tu caso</h3>
             <p class="form-purpose" data-i18n="forms.casePurpose">El formulario principal: recoge lo mínimo para poder responderte con una propuesta, no con preguntas.</p>
             <label>
@@ -233,7 +287,7 @@
             </label>
             <label>
               <span data-i18n="forms.fContact">WhatsApp o correo</span>
-              <input type="tel" name="contacto" required inputmode="tel" autocomplete="tel" data-i18n-ph="forms.phContact" placeholder="755 000 0000">
+              <input type="tel" name="contacto" required inputmode="tel" autocomplete="tel" pattern="[0-9+()\- ]{7,20}" data-i18n-ph="forms.phContact" placeholder="755 000 0000">
             </label>
             <label>
               <span data-i18n="forms.fPain">¿Cuál es tu mayor problema?</span>
@@ -241,6 +295,7 @@
                 <option value="" disabled selected data-i18n="forms.pickPain">Elige una opción</option>
                 <option value="No me llegan clientes" data-i18n="forms.painOpt1">No me llegan clientes</option>
                 <option value="Pierdo horas en lo repetitivo" data-i18n="forms.painOpt2">Pierdo horas en lo repetitivo</option>
+                <option value="Apunto gastos y ventas en una libreta" data-i18n="forms.painOpt4">Apunto gastos y ventas en una libreta</option>
                 <option value="Los dos" data-i18n="forms.painOpt3">Los dos</option>
               </select>
             </label>
@@ -252,8 +307,9 @@
             <p class="form-confirm" hidden><span data-i18n="forms.confirmText">Se abrió WhatsApp con tu mensaje ya listo. Si no se abrió, </span><a class="confirm-link" href="https://wa.me/525658141504" target="_blank" rel="noopener" data-i18n="forms.confirmLink">toca aquí para intentarlo de nuevo</a>.</p>
           </form>
 
-          <form id="revision" class="form-card" novalidate action="https://wa.me/525658141504" method="get">
+          <form id="revision" class="form-card reveal" novalidate action="https://wa.me/525658141504" method="get">
             <input type="hidden" name="text" value="Hola NexIA, quiero la revisión gratuita de mi negocio.">
+            <svg class="panel-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5"/><path d="M8 11h6M11 8v6"/></svg>
             <h3 data-i18n="forms.revTitle">Revisión gratuita de tu presencia</h3>
             <p class="form-purpose" data-i18n="forms.revPurpose">El formulario corto para el primer contacto: pide poco porque todavía no hay confianza. Sin compromiso y sin precio escondido.</p>
             <label>
@@ -276,22 +332,24 @@
             </label>
             <label>
               <span data-i18n="forms.fWa">WhatsApp</span>
-              <input type="tel" name="whatsapp" required inputmode="tel" autocomplete="tel" data-i18n-ph="forms.phWa" placeholder="755 000 0000">
+              <input type="tel" name="whatsapp" required inputmode="tel" autocomplete="tel" pattern="[0-9+()\- ]{7,20}" data-i18n-ph="forms.phWa" placeholder="755 000 0000">
             </label>
             <button type="submit" class="btn btn-primary btn-block" data-i18n="forms.revBtn">Quiero mi revisión</button>
             <p class="form-confirm" hidden><span data-i18n="forms.confirmText">Se abrió WhatsApp con tu mensaje ya listo. Si no se abrió, </span><a class="confirm-link" href="https://wa.me/525658141504" target="_blank" rel="noopener" data-i18n="forms.confirmLink">toca aquí para intentarlo de nuevo</a>.</p>
           </form>
 
         </div>
+        <p class="section-note reveal" data-i18n="forms.trust">Tu número solo se usa para responderte. Te responde Jhonatan, de NexIA.</p>
       </div>
     </section>
 
-    <!-- 9. CIERRE -->
+    <!-- 9. CIERRE: el oleaje, la cuerda, el botón. -->
     <section id="contacto" class="closing">
       <div class="closing-media">
-        <img src="assets/img/hero-la-union-panorama.jpg" srcset="assets/img/hero-la-union-panorama-800.jpg 800w, assets/img/hero-la-union-panorama.jpg 1600w" sizes="(max-width: 719px) 100vw, 1280px" alt="" width="1600" height="1000" loading="lazy">
+        <img src="assets/img/oleaje-cierre.jpg" srcset="assets/img/oleaje-cierre-800.jpg 800w, assets/img/oleaje-cierre.jpg 1600w" sizes="(max-width: 719px) 100vw, 1280px" alt="" width="1600" height="685" loading="lazy">
       </div>
       <div class="closing-copy">
+        <span class="closing-knot" aria-hidden="true"></span>
         <h2 data-i18n="close.title">Cuéntanos tu caso</h2>
         <p data-i18n="close.sub">Cuéntanos tu problema en un mensaje y te respondemos con una propuesta.</p>
         <a class="btn btn-primary btn-lg" id="waClose" href="https://wa.me/525658141504?text=Hola%20NexIA%2C%20quiero%20contarles%20mi%20caso." target="_blank" rel="noopener" data-i18n="close.btn">Hablar por WhatsApp</a>

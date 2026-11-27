@@ -12,14 +12,17 @@ Página estática (HTML + CSS + JS, sin build): vende problemas y
 resultados, no productos. Las dos servicios — campañas de marketing y
 automatizaciones con IA — aparecen solo en letra chica, como el «cómo».
 Wording: «problema» / «dificultad», nunca «dolor». Sin cifras ni
-testimonios inventados: la sección de resultados es un espacio reservado
-para casos reales.
+testimonios inventados: la sección de resultados trae tres casos reales
+(Majahua Palms, Tronco Bay Inn, Catalina Beach Resort) y la sección Quién
+te responde presenta a Jhonatan con su foto de marca. Las cifras por video
+que Facebook no devuelve se marcan como pendientes de confirmar, no se
+inventan.
 
-## Estructura (9 secciones)
+## Estructura (10 secciones)
 
 Hero · ¿Te suena familiar? · Lo que cambia (problemas → resultados) ·
-Así trabajamos · ¿Para quién es? · Resultados reales (reservado) ·
-Preguntas de siempre · Formularios · Cierre por WhatsApp.
+Así trabajamos · ¿Para quién es? · Resultados reales (3 casos) · Quién
+te responde · Preguntas de siempre · Formularios · Cierre por WhatsApp.
 
 Mobile first, ES/EN con un clic, claro/oscuro con un clic (claro por
 defecto). Identidad JJMBrooks minimalista editorial: terracota #C9785B,

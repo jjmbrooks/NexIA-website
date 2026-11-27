@@ -101,6 +101,9 @@ html.js .tracks .track:nth-child(2) { transition-delay: 0.1s; }
 html.js .steps li:nth-child(2) { transition-delay: 0.08s; }
 html.js .steps li:nth-child(3) { transition-delay: 0.16s; }
 html.js .who-grid article:nth-child(2) { transition-delay: 0.08s; }
+html.js .cases .case-card:nth-child(2) { transition-delay: 0.08s; }
+html.js .cases .case-card:nth-child(3) { transition-delay: 0.16s; }
+html.js .about-grid .about-copy { transition-delay: 0.08s; }
 html.js .forms-grid form:nth-child(2) { transition-delay: 0.08s; }
 html.js .faq-list details:nth-child(2) { transition-delay: 0.08s; }
 
@@ -390,6 +393,54 @@ html[data-theme="dark"] .section-water .who-card { background: var(--surface); }
 .empty-net { width: 100%; max-width: 260px; height: auto; margin: 0 auto 14px; }
 .reserved p { max-width: 52ch; margin: 0 auto; font-size: 15px; }
 
+/* ---------- Cases: tres casos reales, cada uno un nudo ---------- */
+.cases { margin-top: 28px; display: grid; gap: 16px; }
+.case-card {
+  position: relative;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 16px; padding: 22px 20px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+/* El nudo sentado sobre el borde: el acento es un nudo, no una barra. */
+.case-card::before {
+  content: ""; position: absolute; top: -6px; left: 22px;
+  width: 11px; height: 11px; background: var(--terracotta);
+  transform: rotate(45deg);
+}
+.case-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--terracotta); }
+.case-place {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--dim);
+}
+.case-card h3 { margin-top: 8px; font-size: 22px; font-weight: 800; }
+.case-card > p { margin-top: 10px; font-size: 15px; }
+.case-note {
+  font-size: 14px !important; color: var(--dim) !important;
+  border-top: 1px solid var(--border); padding-top: 12px;
+}
+
+/* ---------- About: la cara detrás de NexIA ---------- */
+.about-grid { margin-top: 28px; display: grid; gap: 26px; align-items: start; }
+.about-photo { margin: 0; }
+.about-photo img {
+  width: 100%; height: auto; max-width: 340px; aspect-ratio: 1 / 1; object-fit: cover;
+  border-radius: 16px; border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin: 0 auto;
+}
+.about-copy h3 { font-size: 24px; font-weight: 800; }
+.about-tagline { margin-top: 8px; font-weight: 600; color: var(--accent); }
+.about-copy > p { margin-top: 12px; color: var(--dim); }
+.about-facts { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; }
+.about-facts li { position: relative; padding-left: 22px; font-size: 15px; color: var(--dim); }
+.about-facts li::before {
+  content: ""; position: absolute; left: 4px; top: 8px;
+  width: 9px; height: 9px; background: var(--terracotta); transform: rotate(45deg);
+}
+.about-cta { margin-top: 20px; font-size: 15px; }
+.about-cta a { color: var(--accent); font-weight: 700; }
+
 /* ---------- FAQ ---------- */
 .faq-list { margin-top: 24px; display: grid; gap: 12px; }
 .faq-list details {
@@ -543,6 +594,8 @@ body.hide-sticky .sticky-bar { display: none; }
   .steps li { padding: 20px; text-align: left; }
   .steps li .knot-num { position: static; margin-bottom: 16px; }
   .who-grid { grid-template-columns: 1.35fr 1fr; }
+  .about-grid { grid-template-columns: 340px 1fr; gap: 36px; }
+  .cases { grid-template-columns: repeat(3, 1fr); align-items: start; }
   .forms-grid { grid-template-columns: 1fr 1fr; align-items: stretch; }
   .sticky-bar { display: none; }
   .site-footer { padding-bottom: 40px; }

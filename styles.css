@@ -420,6 +420,16 @@ html[data-theme="dark"] .section-water .who-card { background: var(--surface); }
   border-top: 1px solid var(--border); padding-top: 12px;
 }
 
+/* ---------- Caso destacado: Majahua a ancho completo + tira de prueba ---------- */
+/* La destacada ocupa toda la rejilla de casos; las otras dos bajan a la fila siguiente. */
+.case-card--featured { grid-column: 1 / -1; }
+.case-proof { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 18px; }
+.case-proof h4 { font-size: 19px; font-weight: 800; }
+.reel-grid { margin-top: 16px; display: grid; gap: 16px; }
+.reel-embed { margin: 0; min-width: 0; overflow: hidden; }
+.reel-embed .fb-post { width: 100%; }
+.reel-embed figcaption { margin-top: 10px; font-size: 14px; color: var(--dim); }
+
 /* ---------- About: la cara detrás de NexIA ---------- */
 .about-grid { margin-top: 28px; display: grid; gap: 26px; align-items: start; }
 .about-photo { margin: 0; }
@@ -596,6 +606,7 @@ body.hide-sticky .sticky-bar { display: none; }
   .who-grid { grid-template-columns: 1.35fr 1fr; }
   .about-grid { grid-template-columns: 340px 1fr; gap: 36px; }
   .cases { grid-template-columns: repeat(3, 1fr); align-items: start; }
+  .reel-grid { grid-template-columns: repeat(2, 1fr); }
   .forms-grid { grid-template-columns: 1fr 1fr; align-items: stretch; }
   .sticky-bar { display: none; }
   .site-footer { padding-bottom: 40px; }
@@ -616,6 +627,7 @@ body.hide-sticky .sticky-bar { display: none; }
 }
 
 @media (min-width: 1024px) {
+  .reel-grid { grid-template-columns: repeat(3, 1fr); }
   .section { padding: 80px 0; }
   .hero h1 { font-size: 3.6rem; }
 }
